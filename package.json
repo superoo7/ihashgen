@@ -12,6 +12,21 @@
   },
   "name": "intergrity",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "src/index.ts",
+  "license": "MIT",
+  "description": "Generate Intergrity hash for the use of CDN",
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superoo7/intergrity_gen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/superoo7/intergrity_gen/issues"
+  },
+  "homepage": "https://github.com/superoo7/intergrity_gen#readme"
 }

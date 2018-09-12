@@ -1,0 +1,7 @@
+language: node_js
+cache:
+  yarn: true
+node_js:
+  - "9.11.2"
+script:
+  - npm test
