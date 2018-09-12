@@ -2,11 +2,17 @@
 
 [![Build Status](https://travis-ci.org/superoo7/intergrity_gen.svg?branch=master)](https://travis-ci.org/superoo7/intergrity_gen)
 
-Generate Intergrity hash for the use of CDN
+Generate Intergrity hash for the use of CDN, which can be used via CLI or Node packages. (Haven't tested on web)
 
 Name: ihashgen
 
 [npmjs](https://www.npmjs.com/package/ihashgen)
+
+# Version
+
+Stable
+
+- ihashgen@1.1.3
 
 ## Problem Solved
 
@@ -15,6 +21,8 @@ Initially, I wanted to use unpkg for cdn, but wanted to add checksum for intergr
 ```bash
 curl https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css | openssl dgst -sha384 -binary | openssl base64 -A
 ```
+
+![](assets/sample.png)
 
 ## Usage
 
@@ -30,13 +38,30 @@ npm install -g ihashgen # yarn global add ihashgen
 
 #### as Dependency
 
+##### node.js
+
+![](assets/node.png)
+
+ihashgen is a function in typescript
+
+```ts
+const intergrityGen: (
+  url: string,
+  type?: "css" | "js" | undefined,
+  algo?: "sha384" | undefined
+) => Promise<{
+  hash: string;
+  html: string;
+}>;
+```
+
 #### CLI tools
 
 ##### General
 
 ```bash
 > ihashgen --version
-1.1.0
+1.1.3
 > ihashgen --help
 Usage: ihashgen [options] [command]
 
