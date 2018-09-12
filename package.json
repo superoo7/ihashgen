@@ -17,7 +17,7 @@
   "description": "Generate Intergrity hash for the use of CDN",
   "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
