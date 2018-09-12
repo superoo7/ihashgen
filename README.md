@@ -14,6 +14,12 @@ Stable
 
 - ihashgen@1.1.3
 
+## Why use SRI?
+
+https://news.ycombinator.com/item?id=14111499
+
+unpkg website was compromised, so you don't want to risk your website to be phished or whatsoever, a simple intergrity hash check will solve this issue.
+
 ## Problem Solved
 
 Initially, I wanted to use unpkg for cdn alongside alongside with checksum for intergrity, but I found out that I need to run follwing bash command in order to generate hash. Therefore, I decided to write a CLI tools to "automate" that.
