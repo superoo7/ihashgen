@@ -3,7 +3,7 @@ import chalk from "chalk";
 import ora from "ora";
 const config = require("../package.json");
 
-import intergrityGen, { cdnType, algoType } from "./integrityGen";
+import intergrityGen, { cdnType, algoType } from "./"
 
 commander
   .version(config.version)

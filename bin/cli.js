@@ -43,7 +43,7 @@ var commander_1 = __importDefault(require("commander"));
 var chalk_1 = __importDefault(require("chalk"));
 var ora_1 = __importDefault(require("ora"));
 var config = require("../package.json");
-var integrityGen_1 = __importDefault(require("./integrityGen"));
+var _1 = __importDefault(require("./"));
 commander_1.default
     .version(config.version)
     .command("generate <cdn_url>")
@@ -64,7 +64,7 @@ commander_1.default
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, integrityGen_1.default(d, type, algo)];
+                return [4 /*yield*/, _1.default(d, type, algo)];
             case 2:
                 result = _a.sent();
                 spinner.stop();
