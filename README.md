@@ -1,4 +1,4 @@
-# Intergrity_Gen
+# ihashgen
 
 [![Build Status](https://travis-ci.org/superoo7/intergrity_gen.svg?branch=master)](https://travis-ci.org/superoo7/intergrity_gen)
 
@@ -16,13 +16,19 @@ Stable
 
 ## Problem Solved
 
-Initially, I wanted to use unpkg for cdn, but wanted to add checksum for intergrity, but I found out that I need to run follwing bash command in order to generate hash. Therefore, I decided to write a CLI tools to fix that.
+Initially, I wanted to use unpkg for cdn alongside alongside with checksum for intergrity, but I found out that I need to run follwing bash command in order to generate hash. Therefore, I decided to write a CLI tools to "automate" that.
 
 ```bash
 curl https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css | openssl dgst -sha384 -binary | openssl base64 -A
 ```
 
 ![](assets/sample.png)
+
+With intergrity checksum, eventhough the CDN is compromised, but your website are still safe from it.
+
+![](assets/intergrity.png)
+
+_console on webpage when the checksum is not the same_
 
 ## Usage
 

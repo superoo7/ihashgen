@@ -30,13 +30,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/superoo7/intergrity_gen.git"
+    "url": "git+https://github.com/superoo7/ihashgen.git"
   },
   "keywords": [],
   "author": "",
   "bugs": {
-    "url": "https://github.com/superoo7/intergrity_gen/issues"
+    "url": "https://github.com/superoo7/ihashgen/issues"
   },
-  "homepage": "https://github.com/superoo7/intergrity_gen#readme",
+  "homepage": "https://github.com/superoo7/ihashgen#readme",
   "bin": "./bin/cli.js"
 }
