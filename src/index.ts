@@ -1,20 +1,25 @@
-const axios = require('axios')
-const SHA384 = require('crypto-js/sha384')
-const Base64 = require('crypto-js/enc-base64')
+import commander from "commander";
+import chalk from "chalk";
 
-/** 
- * curl https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css | openssl dgst -sha384 -binary | openssl base64 -A
- */
+import intergrityGen from "./integrityGen";
 
-const url = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+commander
+  .version("1.0.0")
+  .command("generate")
+  .alias("gen")
+  .alias("g")
+  .description("generate links based on url given")
+  .action(async d => {
+    if (d.length > 0) {
+      try {
+        const result = await intergrityGen(d);
+        console.log(chalk.green(result));
+      } catch (err) {
+        console.error(chalk.red(`Invalid link for a CDN`));
+      }
+    } else {
+      console.error(chalk.red(`Invalid entries. try generate <url>`));
+    }
+  });
 
-axios.get(url).then(d => {
-    console.log(!!d.data)
-    return d.data
-}).then(d => {
-    const a = Base64.stringify(SHA384(d))
-    const temp = `<link rel="stylesheet" href="${url}" integrity="sha384-${a}" crossorigin="anonymous">`
-    const res = `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">`
-    console.log(temp)
-    console.log(temp === res)
-})
+commander.parse(process.argv);

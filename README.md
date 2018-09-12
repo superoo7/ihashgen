@@ -15,3 +15,7 @@ Generate Intergrity hash for the use of CDN
 ## Roadmaps
 
 - CLI tools with library
+
+```
+curl https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css | openssl dgst -sha384 -binary | openssl base64 -A
+```
