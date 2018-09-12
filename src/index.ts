@@ -14,8 +14,8 @@ commander
       console.log(chalk.blue(`Generatring hashes for [${d}]`));
       const spinner = ora("Loading...").start();
       try {
-        spinner.stop();
         const result = await intergrityGen(d);
+        spinner.stop();
         console.log(chalk.green(result));
       } catch (err) {
         spinner.stop();
