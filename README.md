@@ -30,6 +30,8 @@ With intergrity checksum, eventhough the CDN is compromised, but your website ar
 
 _console on webpage when the checksum is not the same_
 
+Inspired from [srihash.org](https://www.srihash.org/)
+
 ## Usage
 
 ### Installation
@@ -137,3 +139,7 @@ Html:  <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js" 
 - Support other hashing algorithm
 - Better CLI with inquirer
 - Create webpack configuration for [dynamic-cdn-webpack-plugin](https://www.npmjs.com/package/dynamic-cdn-webpack-plugin)
+
+## License
+
+MIT
