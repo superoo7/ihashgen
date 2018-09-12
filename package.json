@@ -16,15 +16,16 @@
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   },
-  "name": "intergrity",
+  "name": "ihashgen",
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "MIT",
-  "description": "Generate Intergrity hash for the use of CDN",
+  "description": "Generate Intergrity hash for the use of CDN.",
   "devDependencies": {},
   "scripts": {
     "test": "jest --coverage",
-    "sample": "ts-node src/index.ts g https://qstaging.netlify.com/bundle.js"
+    "prod": "tsc --outDir \"./prod\"",
+    "sample": "ts-node src/cli.ts g https://qstaging.netlify.com/bundle.js"
   },
   "repository": {
     "type": "git",
