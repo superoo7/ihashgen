@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/crypto-js": "^3.1.43",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.9.4",
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "name": "intergrity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
