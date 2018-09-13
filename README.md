@@ -14,6 +14,7 @@ Stable
 
 - ihashgen@1.1.3
 - ihashgen@1.1.4 [Added typings]
+- ihashgen@1.1.5 [Added inquirer]
 
 ## Why use SRI?
 

@@ -1,36 +1,58 @@
 import commander from "commander";
 import chalk from "chalk";
-import ora from "ora";
+import inquirer, { Prompts } from "inquirer";
+import generate from "./command/generate";
 const config = require("../package.json");
 
-import intergrityGen, { cdnType, algoType } from "./"
+const version = config.version || "unknown";
 
+commander.version(version);
+
+/**
+ * Generate cdn url with hash
+ * > ihashgen generate <cdn_url>
+ * > ihashgen g <cdn_url>
+ */
 commander
-  .version(config.version)
   .command("generate <cdn_url>")
   .alias("g")
   .description("generate links based on url given")
   .option("-t, --type [css/js]", "specify file type (css/js)")
   .option("-a, --algo [sha384]", "specify hashing algorithm (sha384)")
   .action(async (d, args) => {
-    let type: cdnType = args.type ? args.type : undefined;
-    let algo: algoType = args.algo ? args.algo : undefined;
-    if (d.length > 0) {
-      console.log(chalk.blue(`Generatring hashes for [${d}]`));
-      const spinner = ora("Loading...").start();
-      try {
-        const result = await intergrityGen(d, type, algo);
-        spinner.stop();
-        console.log(chalk.blue(`Done hashing 🔑`));
-        console.log(chalk.blue(`Hash: `), chalk.green(result.hash));
-        console.log(chalk.blue(`Html: `), chalk.green(result.html));
-      } catch (err) {
-        spinner.stop();
-        console.error(chalk.red(`Invalid link for a CDN.`));
-      }
-    } else {
-      console.error(chalk.red(`Invalid entries. try generate <url>.`));
-    }
+    await generate(d, args);
   });
+
+console.log(chalk.bgBlue(`ihashgen v${version}`));
+
+// nothing entered
+if (process.argv.length === 2) {
+  const questions = [
+    {
+      type: "list",
+      name: "fileType",
+      message: "Choose file type",
+      choices: ["css", "js"]
+    },
+    {
+      type: "list",
+      name: "hashType",
+      message: "Choose hashing algorithm use",
+      choices: ["sha384"]
+    },
+    {
+      type: "input",
+      name: "cdnUrl",
+      message: "Enter cdn url:"
+    }
+  ];
+  const inq = inquirer.prompt(questions);
+  inq.then(async (answer: any) => {
+    await generate(answer.cdnUrl, {
+      type: answer.fileType,
+      algo: answer.hashType
+    });
+  });
+}
 
 commander.parse(process.argv);
