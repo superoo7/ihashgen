@@ -15,6 +15,7 @@ Stable
 - ihashgen@1.1.3
 - ihashgen@1.1.4 [Added typings]
 - ihashgen@1.1.5 [Added inquirer]
+- ihashgen@1.1.6 [Code refactor]
 
 ## Why use SRI?
 
@@ -141,6 +142,12 @@ Html:  <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js" 
 
 - Crypto-Js
 - Axios
+
+# Development
+
+- `yarn test` to run unit test.
+- `yarn prod` to generate for NPM. (This command works on Linux/Unix based machine)
+- `yarn sample` to run a sample cli command to ihashgen
 
 ## Roadmaps
 

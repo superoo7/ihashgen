@@ -19,8 +19,8 @@ commander
   .description("generate links based on url given")
   .option("-t, --type [css/js]", "specify file type (css/js)")
   .option("-a, --algo [sha384]", "specify hashing algorithm (sha384)")
-  .action(async (d, args) => {
-    await generate(d, args);
+  .action((d, args) => {
+    return generate(d, args);
   });
 
 console.log(chalk.bgBlue(`ihashgen v${version}`));
@@ -47,8 +47,8 @@ if (process.argv.length === 2) {
     }
   ];
   const inq = inquirer.prompt(questions);
-  inq.then(async (answer: any) => {
-    await generate(answer.cdnUrl, {
+  inq.then((answer: any) => {
+    return generate(answer.cdnUrl, {
       type: answer.fileType,
       algo: answer.hashType
     });

@@ -8,7 +8,7 @@
     "ora": "^3.0.0"
   },
   "name": "ihashgen",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "MIT",
   "description": "Generate Intergrity hash for the use of CDN.",
   "devDependencies": {
@@ -32,7 +32,9 @@
     "type": "git",
     "url": "git+https://github.com/superoo7/ihashgen.git"
   },
-  "keywords": [],
+  "keywords": [
+    "sri", "cdn", "hash", "typescript", "cli"
+  ],
   "author": "",
   "bugs": {
     "url": "https://github.com/superoo7/ihashgen/issues"
