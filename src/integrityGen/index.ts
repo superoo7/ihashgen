@@ -17,10 +17,13 @@ const intergrityGen = async (url: string, type?: cdnType, algo?: algoType) => {
   }
   if (type === undefined) throw new Error("must specify type for cdn (css/js)");
 
-  const hash = await axios.get(url).then(d => Base64.stringify(SHA384(d.data)));
+  const { hash, data } = await axios
+    .get(url)
+    .then(d => ({ hash: Base64.stringify(SHA384(d.data)), data: d.data }));
   return {
     hash: hash,
-    html: template(type, url, hash, algo)
+    html: template(type, url, hash, algo),
+    byte: byteSize(data)
   };
 };
 
@@ -36,6 +39,10 @@ export const template = (
   return type === "css"
     ? `<link rel="stylesheet" href="${url}" integrity="${algo}-${hash}" crossorigin="anonymous">`
     : `<script src="${url}" integrity="${algo}-${hash}" crossorigin="anonymous"></script>`;
+};
+
+export const byteSize: (data: string) => number = (data: string) => {
+  return Buffer.byteLength(data, "utf8");
 };
 
 export default intergrityGen;

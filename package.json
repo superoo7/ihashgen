@@ -8,7 +8,7 @@
     "ora": "^3.0.0"
   },
   "name": "ihashgen",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "license": "MIT",
   "description": "Generate Intergrity hash for the use of CDN.",
   "devDependencies": {
@@ -26,7 +26,7 @@
   "scripts": {
     "test": "jest --coverage",
     "prod": "tsc && echo \"#!/usr/bin/env node\" | cat - ./dist/cli.js > temp && mv temp ./dist/cli.js",
-    "sample": "ts-node src/cli.ts g https://qstaging.netlify.com/bundle.js"
+    "sample": "ts-node src/cli.ts g https://unpkg.com/antd@3.9.2/dist/antd-with-locales.min.js"
   },
   "repository": {
     "type": "git",

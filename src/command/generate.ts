@@ -21,6 +21,20 @@ const generate = async (
       const result = await intergrityGen(d, type, algo);
       spinner.stop();
       console.log(chalk.blue(`Done hashing 🔑`));
+      // convert file size
+      const { value, name } =
+        result.byte > 1000
+          ? result.byte > 1000000
+            ? {
+                value: parseFloat(`${(result.byte / 1000000).toFixed(2)}`),
+                name: "MB"
+              }
+            : {
+                value: parseFloat(`${(result.byte / 1000).toFixed(2)}`),
+                name: "kB"
+              }
+          : { value: parseFloat(result.byte.toFixed(2)), name: "bytes" };
+      console.log(chalk.blue(`File Size: `), chalk.green(`${value} ${name}`));
       console.log(chalk.blue(`Hash: `), chalk.green(result.hash));
       console.log(chalk.blue(`Html: `), chalk.green(result.html));
     } catch (err) {

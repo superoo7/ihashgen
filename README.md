@@ -16,6 +16,7 @@ Stable
 - ihashgen@1.1.4 [Added typings]
 - ihashgen@1.1.5 [Added inquirer]
 - ihashgen@1.1.6 [Code refactor]
+- ihashgen@1.1.7 [Shows file sizes in bytes]
 
 ## Why use SRI?
 
